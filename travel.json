@@ -1,0 +1,1660 @@
+{
+    "busLine": [
+        {
+            "id": 1,
+            "name": "BUS 4",
+            "primus": {
+                "id": 7,
+                "name": "Ambohidrano",
+                "longitude": null,
+                "latitude": null
+            },
+            "terminus": {
+                "id": 52,
+                "name": "Mandaniresaka",
+                "longitude": null,
+                "latitude": null
+            },
+            "travel": [
+                {
+                    "id": 7,
+                    "name": "Ambohidrano",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 67,
+                    "name": "Talata",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 73,
+                    "name": "Tsivatrinikamo",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 64,
+                    "name": "Star",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 76,
+                    "name": "Voirie",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 27,
+                    "name": "Avaratsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 14,
+                    "name": "Andranomafana",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 69,
+                    "name": "Therme",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 30,
+                    "name": "Baobab",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 29,
+                    "name": "BNI",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 35,
+                    "name": "Cathedrale",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 21,
+                    "name": "Antsenakely",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 77,
+                    "name": "Zaodahy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 5,
+                    "name": "Ambavahadimangatsiaka",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 49,
+                    "name": "Mahazina",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 8,
+                    "name": "Ambohimena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 60,
+                    "name": "Seminera",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 52,
+                    "name": "Mandaniresaka",
+                    "longitude": null,
+                    "latitude": null
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "BUS 5(Blanc-Bleu)",
+            "primus": {
+                "id": 68,
+                "name": "Talata (Colas)",
+                "longitude": null,
+                "latitude": null
+            },
+            "terminus": {
+                "id": 3,
+                "name": "Aeroport",
+                "longitude": null,
+                "latitude": null
+            },
+            "travel": [
+                {
+                    "id": 68,
+                    "name": "Talata (Colas)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 67,
+                    "name": "Talata",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 73,
+                    "name": "Tsivatrinikamao",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 64,
+                    "name": "Star",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 76,
+                    "name": "Voirie",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 27,
+                    "name": "Avaratsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 26,
+                    "name": "Atsinanantsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 77,
+                    "name": "Zaodahy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 21,
+                    "name": "Antsenakely",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 35,
+                    "name": "Cathedrale",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 69,
+                    "name": "Therme",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 36,
+                    "name": "Cercle Mess",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 66,
+                    "name": "Stedique",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 11,
+                    "name": "Ampihaviana",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 47,
+                    "name": "Lycée (Lara)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 57,
+                    "name": "Plaque (ACMIL)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 65,
+                    "name": "Stationnnement (Piste)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 74,
+                    "name": "Vatofotsy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 20,
+                    "name": "Antsapanimahazo",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 70,
+                    "name": "Tombotsoa",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 3,
+                    "name": "Aeroport",
+                    "longitude": null,
+                    "latitude": null
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "BUS 5(Blanc-Vert)",
+            "primus": {
+                "id": 67,
+                "name": "Talata",
+                "longitude": null,
+                "latitude": null
+            },
+            "terminus": {
+                "id": 3,
+                "name": "Aeroport",
+                "longitude": null,
+                "latitude": null
+            },
+            "travel": [
+                {
+                    "id": 68,
+                    "name": "Talata (Colas)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 67,
+                    "name": "Talata",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 73,
+                    "name": "Tsivatrinikamao",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 64,
+                    "name": "Star",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 76,
+                    "name": "Voirie",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 27,
+                    "name": "Avaratsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 26,
+                    "name": "Atsinanantsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 77,
+                    "name": "Zaodahy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 21,
+                    "name": "Antsenakely",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 35,
+                    "name": "Cathedrale",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 69,
+                    "name": "Therme",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 36,
+                    "name": "Cercle Mess",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 66,
+                    "name": "Stedique",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 11,
+                    "name": "Ampihaviana",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 47,
+                    "name": "Lycée (Lara)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 57,
+                    "name": "Plaque (ACMIL)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 65,
+                    "name": "Stationnnement (Piste)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 74,
+                    "name": "Vatofotsy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 20,
+                    "name": "Antsapanimahazo",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 70,
+                    "name": "Tombotsoa",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 3,
+                    "name": "Aeroport",
+                    "longitude": null,
+                    "latitude": null
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "BUS 10",
+            "primus": {
+                "id": 42,
+                "name": "Dale",
+                "longitude": null,
+                "latitude": null
+            },
+            "terminus": {
+                "id": 24,
+                "name": "Antsira",
+                "longitude": null,
+                "latitude": null
+            },
+            "travel": [
+                {
+                    "id": 42,
+                    "name": "Dale",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 74,
+                    "name": "Vatofotsy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 65,
+                    "name": "Stationnement (Piste)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 57,
+                    "name": "Plaque (ACMIL)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 47,
+                    "name": "Lycee (LARA)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 11,
+                    "name": "Ampihaviana",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 66,
+                    "name": "Stedic",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 13,
+                    "name": "Andranomadio",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 2,
+                    "name": "chemin ambohimiandrisoa",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 76,
+                    "name": "Voirie",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 27,
+                    "name": "Avaratsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 26,
+                    "name": "Atsinanantsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 77,
+                    "name": "Zaodahy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 21,
+                    "name": "Antsenakely",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 22,
+                    "name": "Antsenakely (ACCESS Banque)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 44,
+                    "name": "Gallot Junior",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 58,
+                    "name": "Prison",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 17,
+                    "name": "Antanivao",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 18,
+                    "name": "Antanivao (SMIA)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 1,
+                    "name": "4 Chemins (Ambalavato)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 8,
+                    "name": "Ambohimena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 9,
+                    "name": "Socolait",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 60,
+                    "name": "Seminera (ambohimena)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 61,
+                    "name": "Soba (mandaniresaka)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 52,
+                    "name": "Mandaniresaka",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 15,
+                    "name": "Andranonahoatra",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 24,
+                    "name": "Antsira",
+                    "longitude": null,
+                    "latitude": null
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "BUS 11",
+            "primus": {
+                "id": 67,
+                "name": "Talata",
+                "longitude": null,
+                "latitude": null
+            },
+            "terminus": {
+                "id": 19,
+                "name": "Antsaha",
+                "longitude": null,
+                "latitude": null
+            },
+            "travel": [
+                {
+                    "id": 67,
+                    "name": "Talata Andraikiba",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 73,
+                    "name": "Tsivatrinikamo",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 64,
+                    "name": "Star",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 76,
+                    "name": "Voirie",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 27,
+                    "name": "Avaratsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 26,
+                    "name": "Atsinanantsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 77,
+                    "name": "Zaodahy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 21,
+                    "name": "Antsenakely",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 35,
+                    "name": "Cathedrale",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 69,
+                    "name": "Therme",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 36,
+                    "name": "Cercle Mess",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 66,
+                    "name": "Stedique",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 11,
+                    "name": "Ampihaviana",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 47,
+                    "name": "Lycée (Lara)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 57,
+                    "name": "Plaque (ACMIL)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 65,
+                    "name": "Stationnnement (Piste)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 74,
+                    "name": "Vatofotsy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 20,
+                    "name": "Antsapanimahazo",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 70,
+                    "name": "Tombotsoa",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 19,
+                    "name": "Antsaha",
+                    "longitude": null,
+                    "latitude": null
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "BUS 12",
+            "primus": {
+                "id": 9,
+                "name": "Ambohimena (Socolait)",
+                "longitude": null,
+                "latitude": null
+            },
+            "terminus": {
+                "id": 65,
+                "name": "Stationnnement (Piste)",
+                "longitude": null,
+                "latitude": null
+            },
+            "travel": [
+                {
+                    "id": 65,
+                    "name": "Vatofotsy(Stationnement)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 57,
+                    "name": "Plaque Acmil",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 47,
+                    "name": "Lycee",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 51,
+                    "name": "Mahazoarivo Pavée",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 76,
+                    "name": "Voirie",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 27,
+                    "name": "Avaratsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 14,
+                    "name": "Andranomafana",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 69,
+                    "name": "Therme",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 35,
+                    "name": "Cathedrale",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 21,
+                    "name": "Antsenakely",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 77,
+                    "name": "Zaodahy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 5,
+                    "name": "Ambavahady mangatsiaka",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 49,
+                    "name": "Mahazina",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 8,
+                    "name": "ambohimena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 9,
+                    "name": "Ambohimena (Socolait)",
+                    "longitude": null,
+                    "latitude": null
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "BUS 13",
+            "primus": {
+                "id": 75,
+                "name": "Visy Gasy",
+                "longitude": null,
+                "latitude": null
+            },
+            "terminus": {
+                "id": 45,
+                "name": "JIRAMA (Ambalavato)",
+                "longitude": null,
+                "latitude": null
+            },
+            "travel": [
+                {
+                    "id": 74,
+                    "name": "Vatofotsy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 54,
+                    "name": "Miarinkofeno",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 65,
+                    "name": "Stationnement(Piste)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 57,
+                    "name": "Plaque(ACMIL)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 47,
+                    "name": "Lycee (LARA)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 62,
+                    "name": "Soif d'aujourd'hui(mahazoarivo)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 63,
+                    "name": "St Therese(Mahazoarivo)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 31,
+                    "name": "Bar Malagasy(Mahazoarivo)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 2,
+                    "name": "4 Chemins(Ambohimiandrisoa)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 27,
+                    "name": "Avaratsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 26,
+                    "name": "Atsinanantsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 77,
+                    "name": "Zaodahy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 21,
+                    "name": "Antsenakely",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 35,
+                    "name": "Cathedrale",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 29,
+                    "name": "Banque BNI",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 43,
+                    "name": "Espace Rojo (tsarasaotra)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 16,
+                    "name": "Antanimena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 56,
+                    "name": "Notre Imprimerie",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 41,
+                    "name": "Croix Rouge",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 18,
+                    "name": "Antanivao (SMIA)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 1,
+                    "name": "4 chemin ambalavato",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 40,
+                    "name": "Cotonline",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 45,
+                    "name": "JIRAMA (Ambalavato)",
+                    "longitude": null,
+                    "latitude": null
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "BUS 14",
+            "primus": {
+                "id": 32,
+                "name": "Barriere (Vatofotsy)",
+                "longitude": null,
+                "latitude": null
+            },
+            "terminus": {
+                "id": 12,
+                "name": "Andrangy",
+                "longitude": null,
+                "latitude": null
+            },
+            "travel": [
+                {
+                    "id": 32,
+                    "name": "Barrière",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 74,
+                    "name": "Vatofotsy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 65,
+                    "name": "stationnement (piste)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 57,
+                    "name": "Plaque (ACMIL)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 47,
+                    "name": "Lycée",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 11,
+                    "name": "Ampihaviana",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 71,
+                    "name": "tribunal",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 33,
+                    "name": "Beau Sejour",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 28,
+                    "name": "Avenu Gare",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 53,
+                    "name": "Marmaille",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 39,
+                    "name": "Commune",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 35,
+                    "name": "Cathédrale",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 21,
+                    "name": "Antsenakely",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 77,
+                    "name": "zaodahy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 26,
+                    "name": "Antsinanantsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 25,
+                    "name": "Atsimotsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 72,
+                    "name": "Tsenavao",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 34,
+                    "name": "bevoninkazo",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 12,
+                    "name": "Andrangy",
+                    "longitude": null,
+                    "latitude": null
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "name": "BUS 16",
+            "primus": {
+                "id": 48,
+                "name": "mahafaly",
+                "longitude": null,
+                "latitude": null
+            },
+            "terminus": {
+                "id": 61,
+                "name": "Soba (Mandaniresaka)",
+                "longitude": null,
+                "latitude": null
+            },
+            "travel": [
+                {
+                    "id": 48,
+                    "name": "mahafaly",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 74,
+                    "name": "Vatofotsy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 65,
+                    "name": "Stationnemnet",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 57,
+                    "name": "plaque",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 47,
+                    "name": "Lycée",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 62,
+                    "name": "Soif d'aujourd 'hui(Mahazoarivo)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 63,
+                    "name": "St Therese(Mahazoarivo)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 31,
+                    "name": "Bar Malagasy(Mahazoarivo)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 2,
+                    "name": "4 Chemins(Ambohimiandrisoa)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 27,
+                    "name": "Avaratsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 69,
+                    "name": "therme",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 77,
+                    "name": "zaodahy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 5,
+                    "name": "Ambavahadimangatsiaka",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 49,
+                    "name": "mahazina",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 8,
+                    "name": "Ambohimena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 9,
+                    "name": "Socolait",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 60,
+                    "name": "Seminera (ambohimena)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 52,
+                    "name": "Mandaniresaka",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 61,
+                    "name": "Soba (mandaniresaka)",
+                    "longitude": null,
+                    "latitude": null
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "name": "BUS 17",
+            "primus": {
+                "id": 19,
+                "name": "Antsaha",
+                "longitude": null,
+                "latitude": null
+            },
+            "terminus": {
+                "id": 46,
+                "name": "Lavarano",
+                "longitude": null,
+                "latitude": null
+            },
+            "travel": [
+                {
+                    "id": 19,
+                    "name": "Antsaha",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 70,
+                    "name": "Tombotsoa",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 20,
+                    "name": "Antsapanimahazo",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 74,
+                    "name": "Vatofotsy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 65,
+                    "name": "Stationnement(Piste)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 57,
+                    "name": "Plaque(ACMIL)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 47,
+                    "name": "Lycee (LARA)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 11,
+                    "name": "Ampihaviana",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 66,
+                    "name": "Stedic",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 13,
+                    "name": "Andranomadio",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 2,
+                    "name": "4 chemin ambomiandrisoa",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 76,
+                    "name": "Voirie",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 27,
+                    "name": "Avaratsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 26,
+                    "name": "Atsinanantsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 77,
+                    "name": "Zaodahy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 5,
+                    "name": "Ambavahadimangatsiaka",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 49,
+                    "name": "Mahazina",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 8,
+                    "name": "Ambohimena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 9,
+                    "name": "Socolait",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 60,
+                    "name": "Seminera (ambohimena)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 61,
+                    "name": "Soba (mandaniresaka)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 52,
+                    "name": "Mandaniresaka",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 15,
+                    "name": "Andranonahoatra",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 46,
+                    "name": "Lavarano",
+                    "longitude": null,
+                    "latitude": null
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "name": "BUS 18",
+            "primus": {
+                "id": 38,
+                "name": "Cite Melia",
+                "longitude": null,
+                "latitude": null
+            },
+            "terminus": {
+                "id": 10,
+                "name": "Ampahitra",
+                "longitude": null,
+                "latitude": null
+            },
+            "travel": [
+                {
+                    "id": 38,
+                    "name": "Cité Mélia",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 40,
+                    "name": "cotonline",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 1,
+                    "name": "4chemin Ambalavato",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 17,
+                    "name": "antanivao",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 44,
+                    "name": "Gallo",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 22,
+                    "name": "Antsenakely (ACCESS Banque)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 21,
+                    "name": "antsenakely",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 77,
+                    "name": "Zaodahy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 26,
+                    "name": "Atsinanatsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 27,
+                    "name": "Avaratsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 76,
+                    "name": "Voirie",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 64,
+                    "name": "Star",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 10,
+                    "name": "Ampahatra",
+                    "longitude": null,
+                    "latitude": null
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "name": "BUS 19",
+            "primus": {
+                "id": 6,
+                "name": "Ambilombe (CEG)",
+                "longitude": null,
+                "latitude": null
+            },
+            "terminus": {
+                "id": 75,
+                "name": "Visy Gasy",
+                "longitude": null,
+                "latitude": null
+            },
+            "travel": [
+                {
+                    "id": 6,
+                    "name": "Ambilombe (CEG)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 74,
+                    "name": "Vatofotsy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 65,
+                    "name": "Stationnement (Piste)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 57,
+                    "name": "Plaque (ACMIL)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 47,
+                    "name": "Lycée (LARA)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 37,
+                    "name": "Cisco",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 51,
+                    "name": "Mahazoarivo Pavée",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 76,
+                    "name": "Voirie",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 27,
+                    "name": "Avaratsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 26,
+                    "name": "Atsinanantsena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 77,
+                    "name": "Zaodahy",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 5,
+                    "name": "Ambavahadimangatsiaka",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 49,
+                    "name": "Mahazina",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 8,
+                    "name": "Ambohimena",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 9,
+                    "name": "Socolait",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 60,
+                    "name": "Seminera (ambohimena)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 61,
+                    "name": "Soba (mandaniresaka)",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 52,
+                    "name": "Mandaniresaka",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 15,
+                    "name": "Andranonahoatra",
+                    "longitude": null,
+                    "latitude": null
+                },
+                {
+                    "id": 75,
+                    "name": "Visy Gasy",
+                    "longitude": null,
+                    "latitude": null
+                }
+            ]
+        }
+    ]
+}

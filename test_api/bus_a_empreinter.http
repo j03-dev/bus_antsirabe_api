@@ -1,0 +1,15 @@
+POST http://localhost:8000/api/travel
+Content-Type: application/json
+
+{
+  "a": {
+    "id": 8,
+    "name": "ambohimena"
+  },
+  "b": {
+    "id": 77,
+    "name": "zaodahy"
+  }
+}
+
+###
