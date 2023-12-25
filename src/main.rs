@@ -12,23 +12,25 @@ use app_state::AppState;
 
 use crate::travel_serializer::BustStop;
 
-mod travel_serializer;
 mod app_state;
+mod travel_serializer;
 
 #[derive(Deserialize)]
-pub struct Credential {
+pub struct Stops {
     pub a: BustStop,
     pub b: BustStop,
 }
 
-#[post("/travel", format = "json", data = "<credential>")]
-fn route(credential: Json<Credential>, state: &State<AppState>) -> Value {
-    let res: Vec<_> = state.bus.bus_line
+#[post("/travel", format = "json", data = "<stop>")]
+fn route(stop: Json<Stops>, state: &State<AppState>) -> Value {
+    let result: Vec<_> = state
+        .bus
+        .bus_line
         .iter()
-        .filter(|bus| bus.travel.contains(&credential.a) && bus.travel.contains(&credential.b))
-        .map(|item| item.name.clone())
+        .filter(|line| line.travel.contains(&stop.a) && line.travel.contains(&stop.b))
+        .map(|line| line.name.clone())
         .collect();
-    json!(res)
+    json!(result)
 }
 
 #[get("/travel")]

@@ -16,12 +16,12 @@ impl AppState {
         let reader = BufReader::new(file);
         let bus: Bus = serde_json::from_reader(reader).expect("failed to parse json to bus");
 
-
         let mut bus_stops: HashMap<i64, String> = HashMap::new();
-        for item in bus.bus_line.iter() {
-            bus_stops.insert(item.primus.id, item.primus.name.clone());
-            for t in item.travel.iter() {
-                bus_stops.insert(t.id, t.name.clone());
+        for bus in bus.bus_line.iter() {
+            for stop in bus.travel.iter() {
+                if bus_stops.get(&stop.id).is_none() {
+                    bus_stops.insert(stop.id, stop.name.clone());
+                }
             }
         }
 
