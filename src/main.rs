@@ -24,25 +24,23 @@ pub struct Stops {
 #[post("/travel", format = "json", data = "<stop>")]
 fn route(stop: Json<Stops>, state: &State<AppState>) -> Value {
     let mut result: Vec<String> = Vec::new();
-    let depart = state.bus_stops.get(&stop.a);
-    let arriver = state.bus_stops.get(&stop.b);
-    if depart.is_some() && arriver.is_some() {
-        let bust_stop_depart = BustStop {
+    let name_a = state.bus_stops.get(&stop.a);
+    let name_b = state.bus_stops.get(&stop.b);
+    if name_a.is_some() && name_b.is_some() {
+        let stop_a = BustStop {
             id: stop.a,
-            name: String::from(depart.unwrap()),
+            name: String::from(name_a.unwrap()),
         };
-        let bust_stop_arrive = BustStop {
+        let stop_b = BustStop {
             id: stop.b,
-            name: String::from(arriver.unwrap()),
+            name: String::from(name_b.unwrap()),
         };
 
         result = state
             .bus
             .bus_line
             .iter()
-            .filter(|line| {
-                line.travel.contains(&bust_stop_depart) && line.travel.contains(&bust_stop_arrive)
-            })
+            .filter(|line| line.travel.contains(&stop_a) && line.travel.contains(&stop_b))
             .map(|line| line.name.clone())
             .collect();
     }
