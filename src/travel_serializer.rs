@@ -52,6 +52,5 @@ fn test_lower_case_d_s() {
     let bus_stop_right =
         serde_json::from_str::<BustStop>(json_d).expect("failed to parse this json to bus struct");
 
-    // println!("left {bus_stop_left:?} {bus_stop_right:?}");
     assert_eq!(bus_stop_left, bus_stop_right);
 }

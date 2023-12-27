@@ -17,19 +17,35 @@ mod travel_serializer;
 
 #[derive(Deserialize)]
 pub struct Stops {
-    pub a: BustStop,
-    pub b: BustStop,
+    pub a: i64,
+    pub b: i64,
 }
 
 #[post("/travel", format = "json", data = "<stop>")]
 fn route(stop: Json<Stops>, state: &State<AppState>) -> Value {
-    let result: Vec<_> = state
-        .bus
-        .bus_line
-        .iter()
-        .filter(|line| line.travel.contains(&stop.a) && line.travel.contains(&stop.b))
-        .map(|line| line.name.clone())
-        .collect();
+    let mut result: Vec<String> = Vec::new();
+    let depart = state.bus_stops.get(&stop.a);
+    let arriver = state.bus_stops.get(&stop.b);
+    if depart.is_some() && arriver.is_some() {
+        let bust_stop_depart = BustStop {
+            id: stop.a,
+            name: String::from(depart.unwrap()),
+        };
+        let bust_stop_arrive = BustStop {
+            id: stop.b,
+            name: String::from(arriver.unwrap()),
+        };
+
+        result = state
+            .bus
+            .bus_line
+            .iter()
+            .filter(|line| {
+                line.travel.contains(&bust_stop_depart) && line.travel.contains(&bust_stop_arrive)
+            })
+            .map(|line| line.name.clone())
+            .collect();
+    }
     json!(result)
 }
 
@@ -54,11 +70,39 @@ async fn rocket() -> _ {
         allow_credentials: true,
         ..Default::default()
     }
-        .to_cors()
-        .expect("something is wrong on cors file");
+    .to_cors()
+    .expect("something is wrong on cors file");
 
     rocket::build()
         .mount("/api", routes![travel, route])
         .manage(AppState::init())
         .attach(cors)
+}
+
+#[cfg(test)]
+mod testmain {
+    use crate::app_state::AppState;
+    use crate::Stops;
+
+    use super::route;
+    use rocket::serde::json::{json, Json};
+    use rocket::State;
+
+    #[test]
+    fn test_route() {
+        let stop = Stops { a: 8, b: 77 };
+
+        let result_left = route(Json::from(stop), State::from(&AppState::init()));
+
+        let result_right = json!(vec![
+            String::from("BUS 4"),
+            String::from("BUS 10"),
+            String::from("BUS 12"),
+            String::from("BUS 16"),
+            String::from("BUS 17"),
+            String::from("BUS 19")
+        ]);
+
+        assert_eq!(result_left, result_right);
+    }
 }
