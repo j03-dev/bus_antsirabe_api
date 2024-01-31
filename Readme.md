@@ -2,6 +2,9 @@
 
 ## List all bus stop
 
+### url ```https://bus-antsirabe.onrender.com/api/travel```
+
+
 - end-point: `/api/travel`
 - method: `get`
 - response:
@@ -29,14 +32,8 @@
 
 ```json
 {
-  "a": {
-    "id": 8,
-    "name": "ambohimena"
-  },
-  "b": {
-    "id": 77,
-    "name": "zaodahy"
-  }
+  "a": 8,
+  "b":  77
 }
 ```
 - response
