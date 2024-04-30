@@ -1,17 +1,11 @@
 use rocket::serde::{Deserialize, Serialize};
 use serde::{Deserializer, Serializer};
 
-fn serialize_lowercase<S>(value: &str, serializer: S) -> Result<S::Ok, S::Error>
-where
-    S: Serializer,
-{
+fn serialize_lowercase<S: Serializer>(value: &str, serializer: S) -> Result<S::Ok, S::Error> {
     value.to_lowercase().serialize(serializer)
 }
 
-fn deserialize_lowercase<'de, D>(deserializer: D) -> Result<String, D::Error>
-where
-    D: Deserializer<'de>,
-{
+fn deserialize_lowercase<'de, D: Deserializer<'de>>(deserializer: D) -> Result<String, D::Error> {
     let s: String = Deserialize::deserialize(deserializer)?;
     Ok(s.to_lowercase())
 }

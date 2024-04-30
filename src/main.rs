@@ -26,14 +26,14 @@ fn route(stop: Json<Stops>, state: &State<AppState>) -> Value {
     let mut result: Vec<String> = Vec::new();
     let name_a = state.bus_stops.get(&stop.a);
     let name_b = state.bus_stops.get(&stop.b);
-    if name_a.is_some() && name_b.is_some() {
+    if let (Some(a), Some(b)) = (name_a, name_b) {
         let stop_a = BustStop {
             id: stop.a,
-            name: String::from(name_a.unwrap()),
+            name: a.clone(),
         };
         let stop_b = BustStop {
             id: stop.b,
-            name: String::from(name_b.unwrap()),
+            name: b.clone(),
         };
 
         result = state
