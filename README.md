@@ -29,9 +29,7 @@ Request body:
 
 Response format:
 ```json
-{
-  "buses": ["bus_line_1", "bus_line_2"]
-}
+["bus_line_1", "bus_line_2"]
 ```
 
 ## Running locally
