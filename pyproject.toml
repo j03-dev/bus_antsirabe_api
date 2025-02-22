@@ -1,0 +1,9 @@
+[project]
+name = "bus-antsirabe-api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12.3"
+dependencies = [
+    "oxhttp>=0.1.1",
+]
