@@ -34,8 +34,8 @@ def find_bus(travel: dict, app_data: AppState):
 
 
 api = Router()
-api.route(post("/api/travel", find_bus))
-api.route(get("/api/travel", get_travels))
+api.route(post("/findbus", find_bus))
+api.route(get("/travels", get_travels))
 
 server = HttpServer(("0.0.0.0", 8080))
 server.attach(api)
