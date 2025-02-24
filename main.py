@@ -1,15 +1,23 @@
-from oxhttp import HttpServer, Router, get, post, Response, Status
-from typing import List
-from models import BusLine
+from typing import List, Dict, Set
+
+from oxhttp import HttpServer, Response, Router, Status, get, post
+
 from json_parser import parse_bus_lines
+from models import BusLine
 
 
 class AppState:
     def __init__(self):
         self.buslines: List[BusLine] = parse_bus_lines("travel.json")
-        self.travels = {str(travel.id): travel.name
-                        for busline in self.buslines
-                        for travel in busline.travel}
+        self.travels = {
+            str(travel.id): travel.name
+            for busline in self.buslines
+            for travel in busline.travel
+        }
+        self.travel_sets: Dict[int, Set[int]] = {
+            bus_line.id: {t.id for t in bus_line.travel}
+            for bus_line in self.buslines
+        }
 
 
 def get_travels(app_data: AppState):
@@ -21,16 +29,21 @@ def find_bus(travel: dict, app_data: AppState):
     terminus = int(travel.get("terminus"))
 
     if not primus or not terminus:
-        return Response(Status.BAD_REQUEST(), {"error": "fields `primus` or `terminus` are missing"})
+        return Response(
+            Status.BAD_REQUEST(),
+            {
+                "error": "fields `primus` or `terminus` are missing",
+            },
+        )
 
-    bus_names = []
-    for bus_line in app_data.buslines:
-        primus_in_travel = any(t.id == primus for t in bus_line.travel)
-        terminus_in_travel = any(t.id == terminus for t in bus_line.travel)
-        if primus_in_travel and terminus_in_travel:
-            bus_names.append(bus_line.name)
+    bus_names = {
+        bus_line.name
+        for bus_line in app_data.buslines
+        if primus in app_data.travel_sets[bus_line.id]
+        and terminus in app_data.travel_sets[bus_line.id]
+    }
 
-    return Response(Status.OK(), bus_names)
+    return Response(Status.OK(), list(bus_names))
 
 
 api = Router()
