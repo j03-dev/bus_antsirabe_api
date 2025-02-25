@@ -1,6 +1,6 @@
 from typing import List
 
-from oxhttp import HttpServer, Response, Router, Status, get, post, Request
+from oxhttp import HttpServer, Response, Router, Status, get, post,
 
 from json_parser import parse_bus_lines
 from models import BusLine
@@ -23,7 +23,7 @@ def get_travels(app_data: AppState):
     return Response(Status.OK(), app_data.travels)
 
 
-def find_bus(app_data: AppState, request: Request, travel: dict = {"primus": 8, "terminus": 77}):
+def find_bus(travel: dict, app_data: AppState):
     primus = int(travel.get("primus"))
     terminus = int(travel.get("terminus"))
 
@@ -42,16 +42,10 @@ def find_bus(app_data: AppState, request: Request, travel: dict = {"primus": 8, 
         and terminus in app_data.travel_sets[bus_line.id]
     }
 
-    return Response(Status.OK(), {"request": request, "buses": list(bus_names)})
-
-
-def debug_middlware(request, next, **kwargs):
-    kwargs["request"] = request
-    return next(**kwargs)
+    return Response(Status.OK(), list(bus_names))
 
 
 api = Router()
-api.middleware(debug_middlware)
 api.route(post("/api/travel", find_bus))
 api.route(get("/api/travel", get_travels))
 
