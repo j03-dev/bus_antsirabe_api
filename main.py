@@ -45,8 +45,12 @@ def find_bus(travel: dict, app_data: AppState):
 
     return Response(Status.OK(), list(bus_names))
 
+def debug_middlware(request, next, **kwargs):
+    print("body", request.json())
+    return next(**kwargs)
 
 api = Router()
+api.middleware(debug_middlware)
 api.route(post("/api/travel", find_bus))
 api.route(get("/api/travel", get_travels))
 
