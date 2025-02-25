@@ -1,6 +1,6 @@
-from typing import List, Dict, Set
+from typing import List
 
-from oxhttp import HttpServer, Response, Router, Status, get, post
+from oxhttp import HttpServer, Response, Router, Status, get, post, Request
 
 from json_parser import parse_bus_lines
 from models import BusLine
@@ -14,9 +14,8 @@ class AppState:
             for busline in self.buslines
             for travel in busline.travel
         }
-        self.travel_sets: Dict[int, Set[int]] = {
-            bus_line.id: {t.id for t in bus_line.travel}
-            for bus_line in self.buslines
+        self.travel_sets = {
+            bus_line.id: {t.id for t in bus_line.travel} for bus_line in self.buslines
         }
 
 
@@ -24,7 +23,7 @@ def get_travels(app_data: AppState):
     return Response(Status.OK(), app_data.travels)
 
 
-def find_bus(travel: dict, app_data: AppState):
+def find_bus(app_data: AppState, request: Request, travel: dict = {"primus": 8, "terminus": 77}):
     primus = int(travel.get("primus"))
     terminus = int(travel.get("terminus"))
 
@@ -43,11 +42,13 @@ def find_bus(travel: dict, app_data: AppState):
         and terminus in app_data.travel_sets[bus_line.id]
     }
 
-    return Response(Status.OK(), list(bus_names))
+    return Response(Status.OK(), {"request": request, "buses": list(bus_names)})
+
 
 def debug_middlware(request, next, **kwargs):
-    print("body", request.json())
+    kwargs["request"] = request
     return next(**kwargs)
+
 
 api = Router()
 api.middleware(debug_middlware)
