@@ -56,6 +56,7 @@ api.route(post("/api/travel", find_bus))
 api.route(get("/api/travel", get_travels))
 
 server = HttpServer(("0.0.0.0", 8080))
+server.config(buffer_size=16384 * 2)
 server.attach(api)
 server.app_data(AppState())
 
