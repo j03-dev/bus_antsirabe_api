@@ -20,11 +20,11 @@ class AppState:
 
 
 def get_travels(app_data: AppState):
-    return Response(Status.OK(), app_data.travels)
+    return Response(Status.OK, app_data.travels)
 
 
 def retrieve_travel(id: int, app_data: AppState):
-    return app_data.travels.get(id, None) or Status.NOT_FOUND()
+    return app_data.travels.get(id, None) or Status.NOT_FOUND
 
 
 def find_bus(travel: dict, app_data: AppState):
@@ -46,7 +46,7 @@ def find_bus(travel: dict, app_data: AppState):
         and terminus in app_data.travel_sets[bus_line.id]
     }
 
-    return Response(Status.OK(), list(bus_names))
+    return Response(Status.OK, list(bus_names))
 
 
 api = Router()
