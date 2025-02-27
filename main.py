@@ -23,6 +23,10 @@ def get_travels(app_data: AppState):
     return Response(Status.OK(), app_data.travels)
 
 
+def retrieve_travel(id: int, app_data: AppState):
+    return app_data.travels.get(id, None) or Status.NOT_FOUND()
+
+
 def find_bus(travel: dict, app_data: AppState):
     primus = int(travel.get("primus"))
     terminus = int(travel.get("terminus"))
@@ -47,6 +51,7 @@ def find_bus(travel: dict, app_data: AppState):
 
 api = Router()
 api.route(post("/api/travel", find_bus))
+api.route(get("/api/travel/{id}", retrieve_travel))
 api.route(get("/api/travel", get_travels))
 
 server = HttpServer(("0.0.0.0", 8080))
