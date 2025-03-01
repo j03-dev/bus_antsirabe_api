@@ -35,7 +35,7 @@ def find_bus(travel: dict, app_data: AppState):
 
     if not primus or not terminus:
         return Response(
-            Status.BAD_REQUEST(),
+            Status.BAD_REQUEST,
             {
                 "error": "fields `primus` or `terminus` are missing",
             },
