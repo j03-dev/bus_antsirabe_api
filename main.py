@@ -18,6 +18,8 @@ class AppState:
             bus_line.id: {t.id for t in bus_line.travel} for bus_line in self.buslines
         }
 
+        self.caches = {}
+
 
 def get_travels(app_data: AppState):
     return Response(Status.OK, app_data.travels)
@@ -49,7 +51,24 @@ def find_bus(travel: dict, app_data: AppState):
     return Response(Status.OK, list(bus_names))
 
 
+def cache(request, next, **kwargs):
+    app_data: AppState = kwargs["app_data"]
+
+    uri = request.uri
+    method = request.method
+    body = request.body
+
+    key = f"method:{method}/uri:{uri}/body:{body}"
+    if response := app_data.caches.get(key, None):
+        return response
+    else:
+        response = next(**kwargs)
+        app_data.caches[key] = response
+        return response
+
+
 api = Router()
+api.middleware(cache)
 api.route(post("/api/travel", find_bus))
 api.route(get("/api/travel/{id}", retrieve_travel))
 api.route(get("/api/travel", get_travels))
