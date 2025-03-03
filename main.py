@@ -21,14 +21,17 @@ class AppState:
         self.caches = {}
 
 
+@get("/api/travel")
 def get_travels(app_data: AppState):
     return Response(Status.OK, app_data.travels)
 
 
+@get("/api/travel/{id}")
 def retrieve_travel(id: int, app_data: AppState):
     return app_data.travels.get(id, None) or Status.NOT_FOUND
 
 
+@post("/api/travel", data="travel")
 def find_bus(travel: dict, app_data: AppState):
     primus = int(travel.get("primus"))
     terminus = int(travel.get("terminus"))
@@ -69,9 +72,7 @@ def cache(request, next, **kwargs):
 
 api = Router()
 api.middleware(cache)
-api.route(post("/api/travel", find_bus))
-api.route(get("/api/travel/{id}", retrieve_travel))
-api.route(get("/api/travel", get_travels))
+api.routes([find_bus, retrieve_travel, get_travels])
 
 server = HttpServer(("0.0.0.0", 8080))
 server.attach(api)
