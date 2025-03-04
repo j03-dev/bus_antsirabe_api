@@ -1,6 +1,6 @@
 from typing import List
 
-from oxhttp import HttpServer, Response, Router, Status, get, post
+from oxhttp import HttpServer, Response, Router, Status, get, post, Cors
 
 from json_parser import parse_bus_lines
 from models import BusLine
@@ -75,8 +75,13 @@ api.middleware(cache)
 api.routes([find_bus, retrieve_travel, get_travels])
 
 server = HttpServer(("0.0.0.0", 8080))
-server.attach(api)
 server.app_data(AppState())
+server.attach(api)
+
+cors = Cors()
+cors.methods = ["POST", "GET"]
+cors.headers = ["*"]
+server.config(cors=cors)
 
 
 if __name__ == "__main__":
