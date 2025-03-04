@@ -77,10 +77,8 @@ api.routes([find_bus, retrieve_travel, get_travels])
 server = HttpServer(("0.0.0.0", 8080))
 server.app_data(AppState())
 server.attach(api)
-
 cors = Cors()
-cors.methods = ["POST", "GET"]
-cors.headers = ["*"]
+cors.methods = ["GET", "POST", "OPTION"]
 server.config(cors=cors)
 
 
