@@ -1,6 +1,6 @@
 from typing import List
 
-from oxhttp import HttpServer, Response, Router, Status, get, post, Cors
+from oxhttp import HttpServer, Router, Status, get, post, Cors
 
 from json_parser import parse_bus_lines
 from models import BusLine
@@ -23,26 +23,21 @@ class AppState:
 
 @get("/api/travel")
 def get_travels(app_data: AppState):
-    return Response(Status.OK, app_data.travels)
+    return app_data.travels
 
 
 @get("/api/travel/{id}")
-def retrieve_travel(id: int, app_data: AppState):
+def retrieve_travel(id: str, app_data: AppState):
     return app_data.travels.get(id, None) or Status.NOT_FOUND
 
 
 @post("/api/travel", data="travel")
 def find_bus(travel: dict, app_data: AppState):
-    primus = int(travel.get("primus"))
-    terminus = int(travel.get("terminus"))
+    primus = int(travel.get("primus", None))
+    terminus = int(travel.get("terminus", None))
 
     if not primus or not terminus:
-        return Response(
-            Status.BAD_REQUEST,
-            {
-                "error": "fields `primus` or `terminus` are missing",
-            },
-        )
+        return "fields `primus` or `terminus` are missing", Status.BAD_REQUEST
 
     bus_names = {
         bus_line.name
@@ -51,7 +46,7 @@ def find_bus(travel: dict, app_data: AppState):
         and terminus in app_data.travel_sets[bus_line.id]
     }
 
-    return Response(Status.OK, list(bus_names))
+    return list(bus_names)
 
 
 def cache(request, next, **kwargs):
@@ -61,7 +56,7 @@ def cache(request, next, **kwargs):
     method = request.method
     body = request.body
 
-    key = f"method:{method}/uri:{uri}/body:{body}"
+    key = f"{method}/{uri}/{body}"
     if response := app_data.caches.get(key, None):
         return response
     else:
@@ -78,7 +73,7 @@ server = HttpServer(("0.0.0.0", 8080))
 server.app_data(AppState())
 server.attach(api)
 cors = Cors()
-cors.methods = ["GET", "POST", "OPTION"]
+cors.methods = ["GET", "POST", "OPTIONS"]
 server.config(cors=cors)
 
 
