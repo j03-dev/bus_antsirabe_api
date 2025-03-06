@@ -5,6 +5,5 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
-    "orjson>=3.10.15",
-    "oxhttp==0.2.6",
+ "oxhttp==0.2.7",
 ]

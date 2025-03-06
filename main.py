@@ -2,7 +2,6 @@ from typing import List
 
 from oxhttp import HttpServer, Router, Status, get, post, Cors
 
-from orjson import orjson as json
 from json_parser import parse_bus_lines
 from models import BusLine
 
@@ -24,13 +23,12 @@ class AppState:
 
 @get("/api/travel")
 def get_travels(app_data: AppState):
-    return json.dumps(app_data.travels).decode("utf-8")
+    return app_data.travels
 
 
 @get("/api/travel/{id}")
 def retrieve_travel(id: str, app_data: AppState):
-    return json.dumps(app_data.travels.get(id, None)).decode("utf-8")\
-         or Status.NOT_FOUND
+    return app_data.travels.get(id, None) or Status.NOT_FOUND
 
 
 @post("/api/travel", data="travel")
@@ -48,7 +46,7 @@ def find_bus(travel: dict, app_data: AppState):
         and terminus in app_data.travel_sets[bus_line.id]
     }
 
-    return json.dumps(list(bus_names)).decode("utf-8")
+    return list(bus_names)
 
 
 def cache(request, next, **kwargs):
