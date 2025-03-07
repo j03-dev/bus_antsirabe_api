@@ -1,6 +1,6 @@
 from typing import List
 
-from oxhttp import HttpServer, Router, Status, get, post, Cors
+from oxapy import HttpServer, Router, Status, get, post, Cors
 
 from json_parser import parse_bus_lines
 from models import BusLine
