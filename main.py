@@ -1,6 +1,7 @@
 from typing import List
 
-from oxapy import HttpServer, Router, Status, get, post, Cors
+from oxapy import HttpServer, Router, Status, get, post, Cors, Request
+from oxapy import serializer
 
 from json_parser import parse_bus_lines
 from models import BusLine
@@ -22,22 +23,35 @@ class AppState:
 
 
 @get("/api/travel")
-def get_travels(app_data: AppState):
-    return app_data.travels
+def get_travels(request: Request):
+    return request.app_data.travels
 
 
 @get("/api/travel/{id}")
-def retrieve_travel(id: str, app_data: AppState):
-    return app_data.travels.get(id, None) or Status.NOT_FOUND
+def retrieve_travel(request: Request, id: str):
+    return request.app_data.travels.get(id, None) or Status.NOT_FOUND
 
 
-@post("/api/travel", data="travel")
-def find_bus(travel: dict, app_data: AppState):
-    primus = int(travel.get("primus", None))
-    terminus = int(travel.get("terminus", None))
+class TravelSerializer(serializer.Serializer):
+    primus = serializer.Field("integer")
+    terminus = serializer.Field("integer")
+
+
+@post("/api/travel")
+def find_bus(request):
+    travel = TravelSerializer(request)
+    try:
+        travel.validate()
+    except Exception as e:
+        return str(e), Status.BAD_REQUEST
+
+    primus = travel.validate_data["primus"]
+    terminus = travel.validate_data["terminus"]
 
     if not primus or not terminus:
         return "fields `primus` or `terminus` are missing", Status.BAD_REQUEST
+
+    app_data: AppState = request.app_data
 
     bus_names = {
         bus_line.name
@@ -50,7 +64,7 @@ def find_bus(travel: dict, app_data: AppState):
 
 
 def cache(request, next, **kwargs):
-    app_data: AppState = kwargs["app_data"]
+    app_data: AppState = request.app_data
 
     uri = request.uri
     method = request.method
@@ -60,7 +74,7 @@ def cache(request, next, **kwargs):
     if response := app_data.caches.get(key, None):
         return response
     else:
-        response = next(**kwargs)
+        response = next(request, **kwargs)
         app_data.caches[key] = response
         return response
 
