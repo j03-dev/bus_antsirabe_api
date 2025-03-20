@@ -33,8 +33,8 @@ def retrieve_travel(request: Request, id: str):
 
 
 class TravelSerializer(serializer.Serializer):
-    primus = serializer.IntegerField()
-    terminus = serializer.IntegerField()
+    primus = serializer.CharField()
+    terminus = serializer.CharField()
 
 
 @post("/api/travel")
@@ -42,11 +42,10 @@ def find_bus(request):
     travel = TravelSerializer(request)
     try:
         travel.validate()
+        primus = int(travel.validate_data["primus"])
+        terminus = int(travel.validate_data["terminus"])
     except Exception as e:
         return str(e), Status.BAD_REQUEST
-
-    primus = travel.validate_data["primus"]
-    terminus = travel.validate_data["terminus"]
 
     app_data: AppState = request.app_data
 
