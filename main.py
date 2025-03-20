@@ -33,8 +33,8 @@ def retrieve_travel(request: Request, id: str):
 
 
 class TravelSerializer(serializer.Serializer):
-    primus = serializer.Field("integer")
-    terminus = serializer.Field("integer")
+    primus = serializer.IntegerField()
+    terminus = serializer.IntegerField()
 
 
 @post("/api/travel")
@@ -47,9 +47,6 @@ def find_bus(request):
 
     primus = travel.validate_data["primus"]
     terminus = travel.validate_data["terminus"]
-
-    if not primus or not terminus:
-        return "fields `primus` or `terminus` are missing", Status.BAD_REQUEST
 
     app_data: AppState = request.app_data
 
