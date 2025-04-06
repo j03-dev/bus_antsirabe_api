@@ -1,9 +1,25 @@
 import json
+
 from typing import List
-from models import BusLine, Travel
+from dataclasses import dataclass
 
 
-def parse_bus_lines(file_path: str) -> List[BusLine]:
+@dataclass
+class Travel:
+    id: int
+    name: str
+
+
+@dataclass
+class BusLine:
+    id: int
+    name: str
+    primus: Travel
+    termius: Travel
+    travel: List[Travel]
+
+
+def load_bus_data(file_path: str) -> List[BusLine]:
     with open(file_path, "r") as f:
         data = json.load(f)
 
