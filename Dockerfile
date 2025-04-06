@@ -9,4 +9,4 @@ RUN pip install .
 
 EXPOSE 8080
 
-CMD ["python", "main.py"]
+CMD ["python", "src/main.py"]
