@@ -16,7 +16,7 @@ def retrieve_travel(request: Request, id: str):
 
 
 @post("/api/travel")
-def find_bus(request):
+def find_bus(request: Request):
     travel = TravelSerializer(request)
     try:
         travel.validate()
