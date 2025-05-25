@@ -1,4 +1,4 @@
-from core.app_state import AppState
+from app.core.app_state import AppState
 
 
 def cache(request, next, **kwargs):

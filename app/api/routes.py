@@ -1,21 +1,26 @@
-from oxapy import Router, Status, get, post, Request
+from oxapy import Router, Status, Request  # type: ignore
 
-from core.app_state import AppState
-from api.serializers import TravelSerializer
-from api import middleware
+from app.core.app_state import AppState
+from app.api.serializers import TravelSerializer
+from app.api import middleware
+
+api = Router()
+api.middleware(middleware.cache)
 
 
-@get("/api/travel")
+@api.get("/api/travel")
 def get_travels(request: Request):
-    return request.app_data.travels
+    app_data: AppState = request.app_data
+    return app_data.travels
 
 
-@get("/api/travel/{id}")
+@api.get("/api/travel/{id}")
 def retrieve_travel(request: Request, id: str):
-    return request.app_data.travels.get(id, None) or Status.NOT_FOUND
+    app_data: AppState = request.app_data
+    return app_data.travels.get(id, None) or Status.NOT_FOUND
 
 
-@post("/api/travel")
+@api.post("/api/travel")
 def find_bus(request: Request):
     travel = TravelSerializer(request)
     try:
@@ -35,8 +40,3 @@ def find_bus(request: Request):
     }
 
     return list(bus_names)
-
-
-api = Router()
-api.middleware(middleware.cache)
-api.routes([find_bus, retrieve_travel, get_travels])

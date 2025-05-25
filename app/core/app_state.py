@@ -1,6 +1,6 @@
 from typing import List
 
-from core.utils import BusLine, load_bus_data
+from app.core.utils import BusLine, load_bus_data
 
 
 class AppState:

@@ -3,8 +3,8 @@ name = "bus-antsirabe-api"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 dependencies = [
-    "oxapy==0.4.0",
- "pyproject-toml>=0.0.12",
+    "oxapy==0.4.9",
+    "pyproject-toml>=0.0.12",
 ]
