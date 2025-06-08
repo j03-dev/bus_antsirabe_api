@@ -12,7 +12,7 @@ class AppState:
             for travel in busline.travel
         }
         self.travel_sets = {
-            bus_line.id: {t.id for t in bus_line.travel} for bus_line in self.buslines
+            bus_line.id: {str(t.id) for t in bus_line.travel} for bus_line in self.buslines
         }
 
         self.caches = {}

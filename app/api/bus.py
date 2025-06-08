@@ -4,31 +4,29 @@ from app.core.app_state import AppState
 from app.api.serializers import TravelSerializer
 from app.api import middleware
 
-api = Router()
-api.middleware(middleware.cache)
+router = Router()
+router.middleware(middleware.cache)
 
 
-@api.get("/api/travel")
+@router.get("/api/travel")
 def get_travels(request: Request):
     app_data: AppState = request.app_data
     return app_data.travels
 
 
-@api.get("/api/travel/{id}")
+@router.get("/api/travel/{id}")
 def retrieve_travel(request: Request, id: str):
     app_data: AppState = request.app_data
-    return app_data.travels.get(id, None) or Status.NOT_FOUND
+    return {"travel": app_data.travels.get(id, None)} or Status.NOT_FOUND
 
 
-@api.post("/api/travel")
+@router.post("/api/travel")
 def find_bus(request: Request):
-    travel = TravelSerializer(request)
-    try:
-        travel.validate()
-        primus = int(travel.validate_data["primus"])
-        terminus = int(travel.validate_data["terminus"])
-    except Exception as e:
-        return str(e), Status.BAD_REQUEST
+    travel = TravelSerializer(request)  # type: ignore
+
+    travel.is_valid()
+    primus = travel.validate_data["primus"]
+    terminus = travel.validate_data["terminus"]
 
     app_data: AppState = request.app_data
 
