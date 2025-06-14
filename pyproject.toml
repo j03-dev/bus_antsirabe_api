@@ -8,3 +8,6 @@ dependencies = [
     "oxapy==0.5.7",
     "pyproject-toml>=0.0.12",
 ]
+
+[tool.setuptools]
+packages = ["app"]
