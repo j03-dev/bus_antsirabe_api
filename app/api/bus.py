@@ -8,25 +8,25 @@ router = Router()
 router.middleware(middleware.cache)
 
 
-@router.get("/api/travel")
+@router.get("/api/travels")
 def get_travels(request: Request):
     app_data: AppState = request.app_data
     return app_data.travels
 
 
-@router.get("/api/travel/{id}")
+@router.get("/api/travels/{id}")
 def retrieve_travel(request: Request, id: str):
     app_data: AppState = request.app_data
     return {"travel": app_data.travels.get(id, None)} or Status.NOT_FOUND
 
 
-@router.post("/api/travel")
+@router.post("/api/travels")
 def find_bus(request: Request):
-    travel = TravelSerializer(request)  # type: ignore
+    travel = TravelSerializer(request.data)  # type: ignore
 
     travel.is_valid()
-    primus = travel.validate_data["primus"]
-    terminus = travel.validate_data["terminus"]
+    primus = travel.validated_data["primus"]
+    terminus = travel.validated_data["terminus"]
 
     app_data: AppState = request.app_data
 

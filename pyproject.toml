@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
-    "oxapy==0.5.7",
+    "oxapy==0.6.0",
     "pyproject-toml>=0.0.12",
 ]
 
