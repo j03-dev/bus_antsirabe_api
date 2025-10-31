@@ -1,4 +1,4 @@
-from oxapy import Router, Status, Request  # type: ignore
+from oxapy import Router, Status, Request
 
 from app.core.app_state import AppState
 from app.api.serializers import TravelSerializer
@@ -22,8 +22,7 @@ def retrieve_travel(request: Request, id: str):
 
 @router.post("/api/travels")
 def find_bus(request: Request):
-    travel = TravelSerializer(request.data)  # type: ignore
-
+    travel = TravelSerializer(request.data)
     travel.is_valid()
     primus = travel.validated_data["primus"]
     terminus = travel.validated_data["terminus"]

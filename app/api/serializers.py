@@ -1,4 +1,4 @@
-from oxapy import serializer  # type: ignore
+from oxapy import serializer
 
 
 class TravelSerializer(serializer.Serializer):
