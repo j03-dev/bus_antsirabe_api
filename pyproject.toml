@@ -1,13 +1,10 @@
 [project]
 name = "bus-antsirabe-api"
 version = "0.1.0"
-description = "Add your description here"
+description = "API Rest for retrieving bus line and travel information for Antsirabe"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = [
-    "oxapy==0.6.4",
-    "pyproject-toml>=0.0.12",
-]
+dependencies = ["oxapy==0.6.7"]
 
 [tool.setuptools]
 packages = ["app"]
