@@ -1,4 +1,4 @@
-from oxapy import HttpServer, Request, Cors, Status, Router, get, post, serializer
+from oxapy import HttpServer, Request, Cors, Status, Router, serializer
 from utils import load_bus_data, BusLine
 
 import typing
@@ -20,21 +20,39 @@ class AppState:
         self.caches = {}
 
 
+def cache(r: Request, next, **kwargs):
+    app_data: AppState = r.app_data
+    key = f"{r.method}/{r.uri}/{r.body}"
+    if response := app_data.caches.get(key, None):
+        return response
+    else:
+        response = next(r, **kwargs)
+        app_data.caches[key] = response
+        return response
+
+
 class TravelSerializer(serializer.Serializer):
     primus = serializer.CharField()
     terminus = serializer.CharField()
 
 
+router = Router()
+router.middleware(cache)
+
+
+@router.get("/api/travels")
 def get_travels(request: Request):
     app_data: AppState = request.app_data
     return app_data.travels
 
 
+@router.get("/api/traves/{id}")
 def retrieve_travel(request: Request, id: str):
     app_data: AppState = request.app_data
     return {"travel": app_data.travels.get(id, None)} or Status.NOT_FOUND
 
 
+@router.post("/api/travels")
 def find_bus(request: Request):
     travel = TravelSerializer(request.data)
     travel.is_valid()
@@ -53,31 +71,12 @@ def find_bus(request: Request):
     return list(bus_names)
 
 
-def cache(r: Request, next, **kwargs):
-    app_data: AppState = r.app_data
-    key = f"{r.method}/{r.uri}/{r.body}"
-    if response := app_data.caches.get(key, None):
-        return response
-    else:
-        response = next(r, **kwargs)
-        app_data.caches[key] = response
-        return response
-
-
 def main():
-    (
-        HttpServer(("0.0.0.0", 8080))
-        .cors(Cors())
-        .app_data(AppState())
-        .attach(
-            Router()
-            .middleware(cache)
-            .route(get("/api/travels", get_travels))
-            .route(get("/api/travels/{id}", retrieve_travel))
-            .route(post("/api/travels"), find_bus)
-        )
-        .run()
-    )
+    server = HttpServer(("0.0.0.0", 8080))
+    server.cors(Cors())
+    server.app_data(AppState())
+    server.attach(router)
+    server.run()
 
 
 if __name__ == "__main__":
