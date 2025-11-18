@@ -36,23 +36,23 @@ class TravelSerializer(serializer.Serializer):
     terminus = serializer.CharField()
 
 
-router = Router()
+router = Router("/api")
 router.middleware(cache)
 
 
-@router.get("/api/travels")
+@router.get("travels")
 def get_travels(request: Request):
     app_data: AppState = request.app_data
     return app_data.travels
 
 
-@router.get("/api/traves/{id}")
+@router.get("/traves/{id}")
 def retrieve_travel(request: Request, id: str):
     app_data: AppState = request.app_data
     return {"travel": app_data.travels.get(id, None)} or Status.NOT_FOUND
 
 
-@router.post("/api/travels")
+@router.post("/travels")
 def find_bus(request: Request):
     travel = TravelSerializer(request.data)
     travel.is_valid()
