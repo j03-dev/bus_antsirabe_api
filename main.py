@@ -1,4 +1,4 @@
-from oxapy import HttpServer, Request, Cors, Status, Router, serializer
+from oxapy import HttpServer, Request, Cors, Status, Router, serializer, get, post
 from utils import load_bus_data, BusLine
 
 import typing
@@ -22,7 +22,7 @@ class AppState:
 
 def cache(r: Request, next, **kwargs):
     app_data: AppState = r.app_data
-    key = f"{r.method}/{r.uri}/{r.body}"
+    key = f"{r.method}/{r.uri}/{r.data}"
     if response := app_data.caches.get(key, None):
         return response
     else:
@@ -36,23 +36,13 @@ class TravelSerializer(serializer.Serializer):
     terminus = serializer.CharField()
 
 
-router = Router("/api")
-router.middleware(cache)
-
-
-@router.get("travels")
+@get("/travels")
 def get_travels(request: Request):
     app_data: AppState = request.app_data
     return app_data.travels
 
 
-@router.get("/traves/{id}")
-def retrieve_travel(request: Request, id: str):
-    app_data: AppState = request.app_data
-    return {"travel": app_data.travels.get(id, None)} or Status.NOT_FOUND
-
-
-@router.post("/travels")
+@post("/travels")
 def find_bus(request: Request):
     travel = TravelSerializer(request.data)
     travel.is_valid()
@@ -72,11 +62,13 @@ def find_bus(request: Request):
 
 
 def main():
-    server = HttpServer(("0.0.0.0", 8080))
-    server.cors(Cors())
-    server.app_data(AppState())
-    server.attach(router)
-    server.run()
+    (
+        HttpServer(("0.0.0.0", 8080))
+        .cors(Cors())
+        .app_data(AppState())
+        .attach(Router("/api/v1").routes([get_travels, find_bus]).middleware(cache))
+        .run()
+    )
 
 
 if __name__ == "__main__":

@@ -4,7 +4,7 @@ A simple REST API for retrieving bus line and travel information for Antsirabe.
 
 ## Endpoints
 
-### GET /api/travels
+### GET /api/v1/travels
 
 Returns a list of all available travels with their IDs and names.
 
@@ -15,7 +15,7 @@ Response format:
 }
 ```
 
-### POST /api/travels
+### POST /api/v1/travels
 
 Find bus lines between two points.
 

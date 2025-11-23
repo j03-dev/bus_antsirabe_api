@@ -1,0 +1,4 @@
+run-server:
+  watch: "./**/*.py"
+  command: uv run main.py
+
