@@ -5,6 +5,3 @@ description = "API Rest for retrieving bus line and travel information for Antsi
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = ["oxapy==0.7.3"]
-
-[tool.setuptools]
-packages = ["app"]
