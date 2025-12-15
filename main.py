@@ -22,7 +22,8 @@ class AppState:
 
 def cache(r: Request, next, **kwargs):
     app_data: AppState = r.app_data
-    key = f"{r.method}/{r.uri}/{r.data}"
+    data = r.json()
+    key = f"{r.method}/{r.uri}/{data['primus']}/{data['terminus']}"
     if response := app_data.caches.get(key, None):
         return response
     else:
@@ -66,7 +67,13 @@ def main():
         HttpServer(("0.0.0.0", 8080))
         .cors(Cors())
         .app_data(AppState())
-        .attach(Router("/api/v1").routes([get_travels, find_bus]).middleware(cache))
+        .attach(
+            Router("/api/v1")
+            .route(get_travels)
+            .scope()
+            .middleware(cache)
+            .route(find_bus)
+        )
         .run()
     )
 
