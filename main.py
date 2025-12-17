@@ -8,9 +8,7 @@ class AppState:
     def __init__(self):
         self.buslines: typing.List[BusLine] = load_bus_data("data/travel.json")
         self.travels = [
-            {"id": travel.id, "name": travel.name}
-            for busline in self.buslines
-            for travel in busline.travel
+            travel for busline in self.buslines for travel in busline.travel
         ]
         self.travel_sets = {
             bus_line.id: {t.id for t in bus_line.travel} for bus_line in self.buslines
@@ -42,19 +40,19 @@ def cache_middleware(r: Request, next, **kwargs):
 
 
 @get("/travels")
-def get_travels(r: Request):
+def list_travels(r: Request):
     app_data: AppState = r.app_data
     if search := r.query.get("s"):
         results = []
-        for item in app_data.travels:
-            if not (item in results) and (search.lower() in item["name"].lower()):
-                results.append(item)
+        for travel in app_data.travels:
+            if not (travel in results) and (search.lower() in travel.name.lower()):
+                results.append(travel)
         return results
     return app_data.travels
 
 
 @post("/travels")
-def find_bus(r: Request):
+def search_bus(r: Request):
     app_data: AppState = r.app_data
     lines = [
         bus_line
@@ -72,10 +70,10 @@ def main():
         .app_data(AppState())
         .attach(
             Router("/api/v1")
-            .route(get_travels)
+            .route(list_travels)
             .scope()
             .middleware(cache_middleware)
-            .route(find_bus)
+            .route(search_bus)
         )
         .run()
     )
