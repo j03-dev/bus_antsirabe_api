@@ -10,9 +10,17 @@ Returns a list of all available travels with their IDs and names.
 
 Response format:
 ```json
-{
-  "travel_id": "travel_name"
-}
+[
+  {
+      "id": 7,
+      "name": "Ambohidrano"
+  },
+  {
+      "id": 67,
+      "name": "Talata"
+  }
+  ...
+]
 ```
 
 ### POST /api/v1/travels
@@ -22,14 +30,43 @@ Find bus lines between two points.
 Request body:
 ```json
 {
-  "primus": "starting_point_id",
-  "terminus": "destination_id"
+  "primus": 74,
+  "terminus": 2,
 }
 ```
 
+
 Response format:
 ```json
-["bus_line_1", "bus_line_2"]
+[
+  {
+    "id": 4,
+    "name": "BUS 10",
+    "primus": {
+        "id": 42,
+        "name": "Dale"
+    },
+    "termius": {
+        "id": 24,
+        "name": "Antsira"
+    },
+    "travel": [
+      {
+          "id": 42,
+          "name": "Dale"
+      },
+      {
+          "id": 74,
+          "name": "Vatofotsy"
+      },
+      {
+          "id": 65,
+          "name": "Stationnement (Piste)"
+      },
+      ...
+    ]
+  }
+]
 ```
 
 ## Running locally
