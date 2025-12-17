@@ -1,4 +1,4 @@
-from oxapy import HttpServer, Request, Cors, Status, Router, serializer, get, post
+from oxapy import HttpServer, Request, Cors, Router, serializer, get, post
 from utils import load_bus_data, BusLine
 
 import typing
@@ -7,59 +7,62 @@ import typing
 class AppState:
     def __init__(self):
         self.buslines: typing.List[BusLine] = load_bus_data("data/travel.json")
-        self.travels = {
-            str(travel.id): travel.name
+        self.travels = [
+            {"id": travel.id, "name": travel.name}
             for busline in self.buslines
             for travel in busline.travel
-        }
+        ]
         self.travel_sets = {
-            bus_line.id: {str(t.id) for t in bus_line.travel}
-            for bus_line in self.buslines
+            bus_line.id: {t.id for t in bus_line.travel} for bus_line in self.buslines
         }
 
         self.caches = {}
 
 
-def cache(r: Request, next, **kwargs):
+class TravelSerializer(serializer.Serializer):
+    primus = serializer.IntegerField()
+    terminus = serializer.IntegerField()
+
+
+def cache_middleware(r: Request, next, **kwargs):
+    travel = TravelSerializer(r.data)
+    travel.is_valid()
+    primus = travel.validated_data["primus"]
+    terminus = travel.validated_data["terminus"]
+    key = f"{primus}/{terminus}"
     app_data: AppState = r.app_data
-    data = r.json()
-    key = f"{r.method}/{r.uri}/{data['primus']}/{data['terminus']}"
     if response := app_data.caches.get(key, None):
         return response
     else:
+        r.primus = primus
+        r.terminus = terminus
         response = next(r, **kwargs)
         app_data.caches[key] = response
         return response
 
 
-class TravelSerializer(serializer.Serializer):
-    primus = serializer.CharField()
-    terminus = serializer.CharField()
-
-
 @get("/travels")
-def get_travels(request: Request):
-    app_data: AppState = request.app_data
+def get_travels(r: Request):
+    app_data: AppState = r.app_data
+    if search := r.query.get("s"):
+        results = []
+        for item in app_data.travels:
+            if not (item in results) and (search.lower() in item["name"].lower()):
+                results.append(item)
+        return results
     return app_data.travels
 
 
 @post("/travels")
-def find_bus(request: Request):
-    travel = TravelSerializer(request.data)
-    travel.is_valid()
-    primus = travel.validated_data["primus"]
-    terminus = travel.validated_data["terminus"]
-
-    app_data: AppState = request.app_data
-
-    bus_names = {
-        bus_line.name
+def find_bus(r: Request):
+    app_data: AppState = r.app_data
+    lines = [
+        bus_line
         for bus_line in app_data.buslines
-        if primus in app_data.travel_sets[bus_line.id]
-        and terminus in app_data.travel_sets[bus_line.id]
-    }
-
-    return list(bus_names)
+        if r.primus in app_data.travel_sets[bus_line.id]
+        and r.terminus in app_data.travel_sets[bus_line.id]
+    ]
+    return lines
 
 
 def main():
@@ -71,7 +74,7 @@ def main():
             Router("/api/v1")
             .route(get_travels)
             .scope()
-            .middleware(cache)
+            .middleware(cache_middleware)
             .route(find_bus)
         )
         .run()
