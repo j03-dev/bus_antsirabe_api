@@ -1,19 +1,14 @@
 from oxapy import HttpServer, Request, Cors, Router, serializer, get, post
-from utils import load_bus_data, BusLine
+from utils import load_bus_data, BusLine, Travel
 
 import typing
 
 
 class AppState:
-    def __init__(self):
-        self.buslines: typing.List[BusLine] = load_bus_data("data/travel.json")
-        self.travels = [
-            travel for busline in self.buslines for travel in busline.travel
-        ]
-        self.travel_sets = {
-            bus_line.id: {t.id for t in bus_line.travel} for bus_line in self.buslines
-        }
-
+    def __init__(self, bus_lines: typing.List[BusLine], travels: typing.List[Travel], travel_sets: dict) -> None:
+        self.bus_lines = bus_lines
+        self.travels =travels
+        self.travel_sets = travel_sets
         self.caches = {}
 
 
@@ -56,18 +51,22 @@ def search_bus(r: Request):
     app_data: AppState = r.app_data
     lines = [
         bus_line
-        for bus_line in app_data.buslines
+        for bus_line in app_data.bus_lines
         if r.primus in app_data.travel_sets[bus_line.id]
-        and r.terminus in app_data.travel_sets[bus_line.id]
+           and r.terminus in app_data.travel_sets[bus_line.id]
     ]
     return lines
 
 
 def main():
+    bus_lines : typing.List[BusLine] = load_bus_data("data/travel.json")
+    travels = [t for busline in bus_lines for t in busline.travel]
+    travel_sets = {bl.id: {t.id for t in bl.travel} for bl in bus_lines}
+    app_data = AppState(bus_lines, travels, travel_sets)
     (
         HttpServer(("0.0.0.0", 8080))
         .cors(Cors())
-        .app_data(AppState())
+        .app_data(app_data)
         .attach(
             Router("/api/v1")
             .route(list_travels)
