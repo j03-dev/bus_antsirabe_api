@@ -39,7 +39,7 @@ def cache_middleware(r: Request, next, **kwargs):
         return response
 
 
-@.get("/travels")
+@get("/travels")
 def list_travels(r: Request):
     app_data: AppState = r.app_data
     if search := r.query.get("s"):
@@ -75,7 +75,6 @@ def main():
         .attach(
             Router("/api/v1")
             .route(list_travels)
-            .scope()
             .middleware(cache_middleware)
             .route(search_bus)
         )
