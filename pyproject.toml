@@ -4,4 +4,4 @@ version = "0.1.0"
 description = "API Rest for retrieving bus line and travel information for Antsirabe"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["oxapy>=0.7.8"]
+dependencies = ["oxapy>=0.8.8"]

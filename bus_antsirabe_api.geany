@@ -20,14 +20,15 @@ indent_mode=2
 [project]
 name=bus_antsirabe_api
 base_path=/home/manohy/Projects/bus_antsirabe_api
+description=
 
 [long line marker]
 long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=1
-FILE_NAME_0=0;Python;0;EUTF-8;0;1;1;%2Fhome%2Fmanohy%2FProjects%2Fbus_antsirabe_api%2Fmain.py;0;4
+current_page=0
+FILE_NAME_0=712;Python;0;EUTF-8;0;1;1;%2Fhome%2Fmanohy%2FProjects%2Fbus_antsirabe_api%2Fmain.py;0;4
 FILE_NAME_1=0;Markdown;0;EUTF-8;0;1;1;%2Fhome%2Fmanohy%2FProjects%2Fbus_antsirabe_api%2FREADME.md;0;4
 
 [VTE]
